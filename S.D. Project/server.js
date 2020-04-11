@@ -1,10 +1,10 @@
+var dbConfig = process.env.DATABASE_URL; //connects to heroku database
+
 var mysql = pgp(dbConfig);
 var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
-
-var dbConfig = process.env.DATABASE_URL; //connects to heroku database
 
 var app = express();
 app.use(session({
@@ -16,10 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/', function(request, response) {
-    response.sendFile(path.join(__dirname + '/login.html'));
+    response.sendFile(path.join(__dirname + '/loginproject.html'));
 });
 
-app.post('/loginproject', function(request, response) {
+app.post('/auth', function(request, response) {
     var username = request.body.username;
     var password = request.body.password;
     if (username && password) {
