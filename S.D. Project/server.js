@@ -1,9 +1,16 @@
+var express = require('express'); //Ensure our express framework has been added
+var bodyParser = require('body-parser'); //Ensure our body-parser tool has been added
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
+//Create Database Connection
+var pgp = require('pg-promise')();
+
+
 var dbConfig = process.env.DATABASE_URL; //connects to heroku database
 
 var mysql = pgp(dbConfig);
-var express = require('express');
 var session = require('express-session');
-var bodyParser = require('body-parser');
 var path = require('path');
 
 var app = express();
@@ -12,8 +19,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 app.get('/', function(request, response) {
     response.sendFile(path.join(__dirname + '/loginproject.html'));
