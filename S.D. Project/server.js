@@ -30,7 +30,7 @@ app.use(session({
 }));
 
 app.get('/', function(request, response) {
-    response.sendFile(path.join(__dirname + '/Front_end/loginproject.html'));
+    response.sendFile(path.join(__dirname + '/Front_end/loginpage.html'));
 });
 
 app.post('/auth', function(request, response) {
@@ -63,7 +63,9 @@ app.post('/auth', function(request, response) {
 
 app.get('/homepage', function(request, response) {
     if (request.session.loggedin) {
-        response.send('Welcome back, ' + request.session.username + '!');
+        // response.send('Welcome back, ' + request.session.username + '!');
+        response.sendFile(__dirname + "/Front_end/homepage-1.html");
+        // next();
     } else {
         response.send('Please login to view this page!');
     }
