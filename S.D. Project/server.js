@@ -8,15 +8,15 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 var pgp = require('pg-promise')();
 
 
-// var dbConfig = "postgres://fokxovrlpssdqp:f1752a76d748490250359ff737c6f26e08a07e47da5b765d0afdeb34edf96166@ec2-34-193-232-231.compute-1.amazonaws.com:5432/d23tobmqht1lf5"; //connects to heroku database";
+var dbConfig = process.env.DATABASE_URL;
 
-const dbConfig = {
-    host: 'localhost',
-    port: 5432,
-    database: 'finalprojectdb',
-    user: 'kaleilewis',
-    password: 'password'
-};
+// const dbConfig = {
+//     host: 'localhost',
+//     port: 5432,
+//     database: 'finalprojectdb',
+//     user: 'kaleilewis',
+//     password: 'password'
+// };
 
 
 
@@ -72,6 +72,6 @@ app.get('/homepage', function(request, response) {
     response.end();
 });
 
-// app.listen(process.env.PORT); //connects to heroku port
+app.listen(process.env.PORT); //connects to heroku port
 
-app.listen(3000);
+// app.listen(3000);
