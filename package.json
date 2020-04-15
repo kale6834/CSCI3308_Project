@@ -1,10 +1,30 @@
 {
-    "name": "node-ejs",
+    "name": "server.js",
     "main": "server.js",
     "dependencies": {
         "ejs": "^2.5.5",
         "ejs-lint": "^0.3.0",
         "express": "^4.6.1",
-        "pg-promise": "^8.5.1"
-    }
+        "pg-promise": "^8.5.1",
+        "express-session": ""
+    },
+    "engines": {
+        "node": "^6.13.4"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "version": "1.0.0",
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kale6834/CSCI3308_Project.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kale6834/CSCI3308_Project/issues"
+    },
+    "homepage": "https://github.com/kale6834/CSCI3308_Project#readme",
+    "description": ""
 }
