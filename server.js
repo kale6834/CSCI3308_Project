@@ -6,7 +6,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 //Create Database Connection
 var pgp = require('pg-promise')();
-app.set('view engine', 'jade');
 
 
 var dbConfig = process.env.DATABASE_URL;
