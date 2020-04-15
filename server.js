@@ -30,7 +30,7 @@ app.use(session({
 }));
 
 app.get('/', function(request, response) {
-    response.sendFile(__dirname +'pages/login', {
+    response.sendFile(__dirname +'/Front_end/homepage-1.html', {
         my_title: "Login Page"
     });
 });
