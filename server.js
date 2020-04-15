@@ -20,7 +20,7 @@ var dbConfig = process.env.DATABASE_URL;
 
 
 
-var db = pgp(dbConfig);
+var db = pgp(dbConfig); 
 var session = require('express-session');
 var path = require('path');
 app.use(session({
