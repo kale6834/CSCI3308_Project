@@ -30,7 +30,9 @@ app.use(session({
 }));
 
 app.get('/', function(request, response) {
-    response.sendFile(path.join(__dirname + '/Front_end/loginpage.html'));
+    res.render('pages/login', {
+        my_title: "Login Page"
+    });
 });
 
 app.post('/auth', function(request, response) {
