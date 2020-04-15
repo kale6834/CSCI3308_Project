@@ -30,7 +30,7 @@ app.use(session({
 }));
 
 app.get('/', function(request, response) {
-    res.render('pages/login', {
+    response.render('pages/login', {
         my_title: "Login Page"
     });
 });
