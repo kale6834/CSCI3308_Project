@@ -66,7 +66,8 @@ app.post('/auth', function(request, response) {
 app.get('/homepage', function(request, response) {
     if (request.session.loggedin) {
         // response.send('Welcome back, ' + request.session.username + '!');
-        response.sendFile(__dirname + "/S.D. Project/Front end/homepage.html");
+        //response.sendFile(__dirname + "/S.D. Project/Front end/homepage.html");
+        response.sendFile(__dirname +'/S.D. Project/Front end/homepage.html');
         // next();
     } else {
         response.send('Please login to view this page!');
