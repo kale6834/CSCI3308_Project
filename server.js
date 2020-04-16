@@ -30,7 +30,7 @@ app.use(session({
 }));
 
 app.get('/', function(request, response) {
-    response.sendFile(__dirname +'/S.D. Project/Front end/login.html', {
+    response.sendFile(__dirname +'/S.D._Project/Front_end/login.html', {
         my_title: "Login Page"
     });
 });
@@ -68,7 +68,7 @@ app.get('/homepage', function(request, response) {
         // response.send('Welcome back, ' + request.session.username + '!');
         //response.sendFile(__dirname + "/S.D. Project/Front end/homepage.html");
         //response.end();
-        response.redirect(__dirname +'/S.D. Project/Front end/homepage.html');
+        response.redirect(__dirname +'/S.D._Project/Front_end/homepage.html');
         // next();
     } else {
         response.send('Please login to view this page!');
