@@ -71,7 +71,7 @@ app.get('/homepage', function(request, response) {
         response.redirect(__dirname +'/S.D._Project/Front_end/homepage.html');
         // next();
     } else {
-        response.send('Please login to view this page!');
+        response.render('Please login to view this page!');
     }
     response.end();
 });
