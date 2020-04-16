@@ -68,7 +68,7 @@ app.get('/homepage', function(request, response) {
         // response.send('Welcome back, ' + request.session.username + '!');
         //response.sendFile(__dirname + "/S.D. Project/Front end/homepage.html");
         //response.end();
-        response.redirect(__dirname +'/S.D._Project/Front_end/homepage.html');
+        return response.redirect(__dirname +'/S.D._Project/Front_end/homepage.html');
         // next();
     } else {
         response.render('Please login to view this page!');
