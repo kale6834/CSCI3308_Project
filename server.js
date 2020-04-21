@@ -95,7 +95,8 @@ app.post('/signup', function(req, res) {
     if (username && firstname && lastname && password) {
         client.query("INSERT INTO players(username, firstname, lastname, password) values($1, $2, $3, $4)", [username, firstname, lastname, password]);
         // res.send('Registered Successfully');
-        return res.redirect(__dirname + '/homepage.html');
+        res.render('homepage');
+        // return res.redirect(__dirname + 'homepage');
     } else {
         res.send('Error inserting into database');
     }
