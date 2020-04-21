@@ -32,7 +32,7 @@ app.use(session({
 }));
 
 app.get('/', function(req, res) {
-    res.render('pages/signup', {
+    res.render('Front_end/signup', {
         my_title: "Signup Page"
     });
     // response.sendFile(__dirname + '/S.D._Project/Front_end/signup.html', {
@@ -41,7 +41,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/login', function(req, res) {
-    res.render('pages/login', {
+    res.render('Front_end/login', {
         my_title: "Login Page"
     });
 })
@@ -75,7 +75,7 @@ app.post('/auth', function(request, response) {
 });
 
 app.get('/homepage', function(request, response) {
-    res.render('pages/homepage', {
+    res.render('Front_end/homepage', {
         my_title: "Homepage"
     });
     if (request.session.loggedin) {
@@ -86,34 +86,6 @@ app.get('/homepage', function(request, response) {
     }
     response.end();
 });
-
-// cryptr = new Cryptr('myTotalySecretKey');
-
-db.register = function(req, res) {
-    var encryptedString = cryptr.encrypt(req.body.password);
-    var users = {
-        "name": req.body.name,
-        "email": req.body.email,
-        "password": encryptedString,
-        "created_at": today,
-        "updated_at": today
-    }
-    connection.query("INSERT INTO players SET '" + users + function(error, results, fields) {
-        if (error) {
-            res.json({
-                status: false,
-                message: 'there are some error with query'
-            })
-        } else {
-            res.json({
-                status: true,
-                data: results,
-                message: 'user registered sucessfully'
-            })
-        }
-    });
-}
-
 
 app.post('/signup', function(req, res) {
     var username = fields.username;
