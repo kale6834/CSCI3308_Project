@@ -119,20 +119,19 @@ app.post('/signup/select_user', function(req, res) {
 });
 
 app.get('/homepage/select_user', function(req, res) {
-    var username = req.query.player_choice;
-    var list_players = 'select player_id, username from players;';
-    var chosen_player = 'select * from players where player_id=' + username + ';';
+    // var username = req.query.player_choice;
+    // var list_players = 'select player_id, username from players;';
+    // var chosen_player = 'select * from players where username=' + username + ';';
+    var user = 'select username from players;';
     db.task('get-everything', task => {
             return task.batch([
-                task.any(list_players),
-                task.any(chosen_player)
+                task.any(user)
             ]);
         })
         .then(info => {
             res.render('homepage', {
                 my_title: "Home Page",
-                players: info[0],
-                name: info[0][1]
+                name: info[1][0]
 
             })
             console.log(name)
@@ -142,7 +141,6 @@ app.get('/homepage/select_user', function(req, res) {
             req.flash('error', err);
             res.render('homepage', {
                 title: 'Home Page',
-                data: '',
                 name: ''
             })
         });
