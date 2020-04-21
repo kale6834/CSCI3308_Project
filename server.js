@@ -88,7 +88,7 @@ app.get('/homepage', function(request, response) {
 
 app.get('/meettheteam', function(req, res) {
   res.render("meettheteam");
-}
+});
 
 app.post('/signup', function(req, res) {
     var username = fields.username;
