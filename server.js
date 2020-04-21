@@ -20,7 +20,9 @@ var dbConfig = process.env.DATABASE_URL;
 
 
 
-var db = pgp(dbConfig); 
+var db = pgp(dbConfig);
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/')); //This line is necessary for us to use relative paths and access our resources directory
 var session = require('express-session');
 var path = require('path');
 app.use(session({
@@ -29,18 +31,27 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.get('/', function(request, response) {
-    response.sendFile(__dirname +'/S.D._Project/Front_end/signup.html', {
+app.get('/', function(req, res) {
+    res.render('signup', {
+        my_title: "Signup Page"
+    });
+    // response.sendFile(__dirname + '/S.D._Project/Front_end/signup.html', {
+    //     my_title: "Login Page"
+    // });
+});
+
+app.get('/login', function(req, res) {
+    res.render('login', {
         my_title: "Login Page"
     });
-});
+})
 
 app.post('/auth', function(request, response) {
     var username = request.body.username;
     var password = request.body.password;
     console.log(username, password);
     if (username && password) {
-        var query = "SELECT * FROM players WHERE name ='" + username + "'AND password = '" + password + "'";
+        var query = "SELECT * FROM players WHERE username ='" + username + "'AND password = '" + password + "'";
         console.log(query);
         db.any(query)
             .then(function(results) {
@@ -65,16 +76,32 @@ app.post('/auth', function(request, response) {
 
 app.get('/homepage', function(request, response) {
     if (request.session.loggedin) {
-        // response.send('Welcome back, ' + request.session.username + '!');
-        //response.sendFile(__dirname + "/S.D. Project/Front end/homepage.html");
-        //response.end();
-        return response.render('/S.D._Project/Front_end/homepage.html');
-        // next();
+        response.render('homepage', {
+            my_title: "Homepage"
+        });
+        // return response.redirect(__dirname + '/S.D._Project/Front_end/homepage.html');
     } else {
         response.render('Please login to view this page!');
     }
     response.end();
 });
+
+app.post('/signup', function(req, res) {
+    var username = fields.username;
+    var firstname = req.body.firstName;
+    var lastname = req.body.lastName;
+    var password = req.body.psw;
+    if (username && firstname && lastname && password) {
+        client.query("INSERT INTO players(username, firstname, lastname, password) values($1, $2, $3, $4)", [username, firstname, lastname, password]);
+        // res.send('Registered Successfully');
+        res.render('homepage');
+        // return res.redirect(__dirname + 'homepage');
+    } else {
+        res.send('Error inserting into database');
+    }
+
+});
+
 
 app.listen(process.env.PORT); //connects to heroku port
 
