@@ -32,7 +32,7 @@ app.use(session({
 }));
 
 app.get('/', function(req, res) {
-    res.render('homepage', {
+    res.render('signup', {
         my_title: "Signup Page"
     });
     // response.sendFile(__dirname + '/S.D._Project/Front_end/signup.html', {
@@ -45,6 +45,7 @@ app.get('/login', function(req, res) {
         my_title: "Login Page"
     });
 })
+
 
 app.post('/auth', function(request, response) {
     var username = request.body.username;
@@ -86,24 +87,62 @@ app.get('/homepage', function(request, response) {
     response.end();
 });
 
-app.get('/meettheteam', function(req, res) {
-  res.render("meettheteam");
-});
-
-app.post('/signup', function(req, res) {
-    var username = fields.username;
+app.post('/signup/select_user', function(req, res) {
+    var username = req.body.username;
     var firstname = req.body.firstName;
     var lastname = req.body.lastName;
     var password = req.body.psw;
-    if (username && firstname && lastname && password) {
-        client.query("INSERT INTO players(username, firstname, lastname, password) values($1, $2, $3, $4)", [username, firstname, lastname, password]);
-        // res.send('Registered Successfully');
-        res.render('homepage');
-        // return res.redirect(__dirname + 'homepage');
-    } else {
-        res.send('Error inserting into database');
-    }
+    var insert_statement = "INSERT INTO players(username, firstname, lastname, password) VALUES('" + username + "','" +
+        firstname + "','" + lastname + "'," + password + "');";
+    db.task('get-everything', task => {
+            return task.batch([
+                task.any(insert_statement)
+            ]);
+        })
+        .then(info => {
+            res.render('homepage', {
+                my_title: "Home Page",
+                data: info[1],
+                name: username
+            })
+        })
+        .catch(error => {
+            // display error message in case an error
+            req.flash('error', err);
+            res.render('homepage', {
+                title: 'Home Page',
+                data: '',
+                name: ''
+            })
+        });
 
+});
+
+app.get('/homepage/select_user', function(req, res) {
+    var player_options = 'select * from players;';
+    var user_select = "select username from players where username = '" + username + "';";
+    db.task('get-everything', task => {
+            return task.batch([
+                task.any(player_options),
+                task.any(user_select)
+            ]);
+        })
+        .then(info => {
+            res.render('homepage', {
+                my_title: "Home Page",
+                data: info[1],
+                name: username
+            })
+        })
+        .catch(error => {
+            // display error message in case an error
+            req.flash('error', err);
+            res.render('homepage', {
+                title: 'Home Page',
+                data: '',
+                name: ''
+            })
+        });
 });
 
 
