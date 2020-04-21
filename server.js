@@ -51,7 +51,7 @@ app.post('/auth', function(request, response) {
     var password = request.body.password;
     console.log(username, password);
     if (username && password) {
-        var query = "SELECT * FROM players WHERE name ='" + username + "'AND password = '" + password + "'";
+        var query = "SELECT * FROM players WHERE username ='" + username + "'AND password = '" + password + "'";
         console.log(query);
         db.any(query)
             .then(function(results) {
