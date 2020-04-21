@@ -1,4 +1,3 @@
-var formidable = require("formidable");
 var express = require('express'); //Ensure our express framework has been added
 var bodyParser = require('body-parser'); //Ensure our body-parser tool has been added
 var app = express();
@@ -32,12 +31,18 @@ app.use(session({
 
 app.get('/', function(request, response) {
     res.render('pages/signup', {
-        my_title: "Login Page"
+        my_title: "Signup Page"
     });
     // response.sendFile(__dirname + '/S.D._Project/Front_end/signup.html', {
     //     my_title: "Login Page"
     // });
 });
+
+app.get('/login', function(req, res) {
+    res.render('pages/login', {
+        my_title: "Login Page"
+    });
+})
 
 app.post('/auth', function(request, response) {
     var username = request.body.username;
