@@ -120,7 +120,7 @@ app.post('/signup/select_user', function(req, res) {
 
 app.get('/homepage/select_user', function(req, res) {
     var player_id = req.query.player_choice;
-    var list_players = 'select player_id, name from players;';
+    var list_players = 'select player_id, username from players;';
     var chosen_player = 'select * from players where player_id=' + player_id + ';';
     db.task('get-everything', task => {
             return task.batch([
@@ -133,7 +133,9 @@ app.get('/homepage/select_user', function(req, res) {
                 my_title: "Home Page",
                 players: data[0],
                 name: data[1]
+
             })
+            console.log(name)
         })
         .catch(error => {
             // display error message in case an error
