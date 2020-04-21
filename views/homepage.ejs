@@ -20,14 +20,11 @@
             var proficiency = 2;
             if (level >= 5 && level < 9) {
                 proficiency = 3;
-            }
-            else if (level >= 9 && level < 13) {
+            } else if (level >= 9 && level < 13) {
                 proficiency = 4;
-            }
-            else if (level >= 13 && level < 17) {
+            } else if (level >= 13 && level < 17) {
                 proficiency = 5;
-            }
-            else if (level >= 17) {
+            } else if (level >= 17) {
                 proficiency = 6;
             }
         }
@@ -35,7 +32,7 @@
             var ability_mod = Math.floor((Number(document.getElementById(src_id).value) - 10) / 2)
             document.getElementById(dest_id).innerHTML = "<strong>" + format_mod(ability_mod) + "</strong>"
         }
-        set_skill_bonus = function(checkbox,skill_id,ability_id) {
+        set_skill_bonus = function(checkbox, skill_id, ability_id) {
             var ability_mod = document.getElementById(ability_id)
             var prof_bonus = 0
             if (checkbox.checked) {
@@ -54,14 +51,17 @@
         body {
             background-color: rgb(26, 26, 40);
         }
+        
         input[type=text] {
             border: none;
-            font-size:20px;
+            font-size: 20px;
             border-bottom: 1px solid gray;
         }
+        
         input[type=text]:focus {
             border: 1px solid #262626;
         }
+        
         input[type=number] {
             text-align: center;
             width: 45px;
@@ -69,6 +69,7 @@
             border: none;
             border-right: 1px solid gray;
         }
+        
         input[type=number]:focus {
             text-align: left;
             border: 1px solid #262626;
@@ -79,11 +80,11 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand">
-            <img src="../images/1200px-Dungeons_&_Dragons_5th_Edition_logo.svg.png" width="100" height="45" alt="Dungeons and Dragons logo">
+            <img src="1200px-Dungeons_&_Dragons_5th_Edition_logo.svg.png" width="100" height="45" alt="Dungeons and Dragons logo">
         </a>
-        <img src="../images/NEW_TO_DD_Classes_Ranger_T_140723.jpg" class="center avatar" alt="Image of D&D player that has logged in.">
+        <img src="NEW_TO_DD_Classes_Ranger_T_140723.jpg" class="center avatar" alt="Image of D&D player that has logged in.">
         <span class="navbar-text">
-            <a href="../code/login.html" class="btn btn-outline-secondary">Log Out</a>
+            <a href="login" class="btn btn-outline-secondary">Log Out</a>
           </span>
     </nav>
     <br>
@@ -92,15 +93,19 @@
             <div class="card">
                 <div class="card-header">
                     <header>
-                    <input type="text" id="char_name" class="form-control input-lg"> <span style="color:#a0a0a0">Character Name</span>
+                        <input type="text" id="char_name" class="form-control input-lg"> <span style="color:#a0a0a0"><%= name ? name : '' %></span>
                     </header>
                 </div>
-                            <!-- <a href="#" class="card-link">
+                <!-- <a href="#" class="card-link">
                                 <h6 class="card-subtitle mb-2 text-muted">Add Trait</h6>
                             </a> -->
                 <div class="card-body">
+<<<<<<< HEAD
                     <!-- <<<<<<< HEAD:S.D._Project/Front_end/homepage.html -->
                     <form class="form-inline">
+=======
+                    <<<<<<< HEAD:S.D._Project/Front_end/homepage.html <form class="form-inline">
+>>>>>>> 3ae28395f3d3bd168879cb35e3eb7c451f886ff2
                         <div class="form-group">
                             <div class=col-5>
                                 <input class="form-control" type="text" id="char_race"></input>
@@ -115,9 +120,40 @@
                                 <label for="char_level">Level</label>
                             </div>
                         </div>
+<<<<<<< HEAD
                     </form>
                     <!-- ======= -->
                    <!-- >>>>>>> bc0eea3af2b72c4033dd4341ccec08599c8cc731:views/homepage.ejs -->
+=======
+                        </form>
+                        =======
+                        <h5 class="card-title">
+                            <input type="text" id="char_name"> <small><span style="color:#a0a0a0">Character Name</span></small>
+                        </h5>
+                        <!-- <a href="#" class="card-link">
+                        <h6 class="card-subtitle mb-2 text-muted">Add Trait</h6>
+                    </a> -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Race</th>
+                                    <th scope="col">Class</th>
+                                    <th scope="col">Level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" id="char_race"></input>
+                                    </td>
+                                    <td><input type="text" id="char_class"></input>
+                                    </td>
+                                    <td><input type="number" min="1" max="20" value="1" id="char_level" style="text-align: center; width: 45px"></input>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        >>>>>>> bc0eea3af2b72c4033dd4341ccec08599c8cc731:views/homepage.ejs
+>>>>>>> 3ae28395f3d3bd168879cb35e3eb7c451f886ff2
                 </div>
             </div>
         </div>
@@ -142,159 +178,158 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-<<<<<<< HEAD:S.D._Project/Front_end/homepage.html
-                            <div style="float:left; margin:0; width:50%;">
+                            <<<<<<< HEAD:S.D._Project/Front_end/homepage.html <div style="float:left; margin:0; width:50%;">
                                 DEX
                                 <br>
-                                <h3><span id="dex_mod">+0</span></td></h3>
-                            </div>
-                            <div style="float:left; margin:0; width:50%;">
-                                <input type="number" id="dex_attr" style="k" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
-                            </div>
-=======
-                            DEX
+                                <h3><span id="dex_mod">+0</span></td>
+                                </h3>
+                        </div>
+                        <div style="float:left; margin:0; width:50%;">
+                            <input type="number" id="dex_attr" style="k" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
+                        </div>
+                        ======= DEX
+                        <br>
+                        <h3><span id="dex_mod">+0</span></td>
+                        </h3>
+                        <input type="number" id="dex_attr" style="text-align: center; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
+                        >>>>>>> bc0eea3af2b72c4033dd4341ccec08599c8cc731:views/homepage.ejs
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div style="float:left; margin:0; width:50%;">
+                            CON
                             <br>
-                            <h3><span id="dex_mod">+0</span></td>
-                            </h3>
-                            <input type="number" id="dex_attr" style="text-align: center; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
->>>>>>> bc0eea3af2b72c4033dd4341ccec08599c8cc731:views/homepage.ejs
+                            <h3><span id="con_mod">+0</span></h3>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div style="float:left; margin:0; width:50%;">
-                                CON
-                                <br>
-                                <h3><span id="con_mod">+0</span></h3>
-                            </div>
-                            <div style="float:left; margin:0; width:50%;">
-                                <input type="number" id="con_attr" min="0" max="30" value="10" oninput="set_ability_mod('con_attr','con_mod')"></input>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div style="float:left; margin:0; width:50%;">
-                                INT
-                                <br>
-                                <h3><span id="int_mod">+0</span></h3>
-                            </div>
-                            <div style="float:left; margin:0; width:50%;">
-                                <input type="number" id="int_attr" min="0" max="30" value="10" oninput="set_ability_mod('int_attr','int_mod')"></input>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div style="float:left; margin:0; width:50%;">
-                                WIS
-                                <br>
-                                <h3><span id="wis_mod">+0</span></h3>
-                            </div>
-                            <div style="float:left; margin:0; width:50%;">
-                                <input type="number" id="wis_attr" min="0" max="30" value="10" oninput="set_ability_mod('wis_attr','wis_mod')"></input>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div style="float:left; margin:0; width:50%;">
-                                CHA
-                                <br>
-                                <h3><span id="cha_mod">+0</span></h3>
-                            </div>
-                            <div style="float:left; margin:0; width:50%;">
-                                <input type="number" id="cha_attr" min="0" max="30" value="10" oninput="set_ability_mod('cha_attr','cha_mod')"></input>
-                            </div>
+                        <div style="float:left; margin:0; width:50%;">
+                            <input type="number" id="con_attr" min="0" max="30" value="10" oninput="set_ability_mod('con_attr','con_mod')"></input>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Skills</h5>
-                        <!--<a href="#" class="card-link">
-                            <h6 class="card-subtitle mb-2 text-muted">Add Skill</h6>
-                        </a>-->
-                        <table class="table table-hover">
-                            <tr>
-                                <td><input type="checkbox" onchange="set_skill_bonus(this,'acrobatics_skill_mod','dex_mod')">&nbsp;Acrobatics</td>
-                                <td><span id="acrobatics_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Animal Handling</td>
-                                <td><span id="animal_handling_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Athletics</td>
-                                <td><span id="athletics_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Deception</td>
-                                <td><span id="animal_handling_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;History</td>
-                                <td> <span id="history_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Insight</td>
-                                <td><span id="insight_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Intimidation</td>
-                                <td><span id="investigation_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Medicine</td>
-                                <td><span id="medicine_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Nature</td>
-                                <td><span id="nature_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Perception</td>
-                                <td> <span id="perception_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Performance</td>
-                                <td><span id="performance_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Persuasion</td>
-                                <td><span id="persuasion_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Religion</td>
-                                <td><span id="religion_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Sleight of Hand</td>
-                                <td><span id="sleight_of_hand_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Stealth</td>
-                                <td> <span id="stealth_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox">&nbsp;Survival</td>
-                                <td><span id="survival_skill_mod">+0</span></td>
-                            </tr>
-                        </table>
+                        <div style="float:left; margin:0; width:50%;">
+                            INT
+                            <br>
+                            <h3><span id="int_mod">+0</span></h3>
+                        </div>
+                        <div style="float:left; margin:0; width:50%;">
+                            <input type="number" id="int_attr" min="0" max="30" value="10" oninput="set_ability_mod('int_attr','int_mod')"></input>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Features</h5>
-                        <textarea rows="35" cols="50"></textarea>
+                        <div style="float:left; margin:0; width:50%;">
+                            WIS
+                            <br>
+                            <h3><span id="wis_mod">+0</span></h3>
+                        </div>
+                        <div style="float:left; margin:0; width:50%;">
+                            <input type="number" id="wis_attr" min="0" max="30" value="10" oninput="set_ability_mod('wis_attr','wis_mod')"></input>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div style="float:left; margin:0; width:50%;">
+                            CHA
+                            <br>
+                            <h3><span id="cha_mod">+0</span></h3>
+                        </div>
+                        <div style="float:left; margin:0; width:50%;">
+                            <input type="number" id="cha_attr" min="0" max="30" value="10" oninput="set_ability_mod('cha_attr','cha_mod')"></input>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Skills</h5>
+                    <!--<a href="#" class="card-link">
+                            <h6 class="card-subtitle mb-2 text-muted">Add Skill</h6>
+                        </a>-->
+                    <table class="table table-hover">
+                        <tr>
+                            <td><input type="checkbox" onchange="set_skill_bonus(this,'acrobatics_skill_mod','dex_mod')">&nbsp;Acrobatics</td>
+                            <td><span id="acrobatics_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Animal Handling</td>
+                            <td><span id="animal_handling_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Athletics</td>
+                            <td><span id="athletics_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Deception</td>
+                            <td><span id="animal_handling_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;History</td>
+                            <td> <span id="history_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Insight</td>
+                            <td><span id="insight_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Intimidation</td>
+                            <td><span id="investigation_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Medicine</td>
+                            <td><span id="medicine_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Nature</td>
+                            <td><span id="nature_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Perception</td>
+                            <td> <span id="perception_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Performance</td>
+                            <td><span id="performance_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Persuasion</td>
+                            <td><span id="persuasion_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Religion</td>
+                            <td><span id="religion_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Sleight of Hand</td>
+                            <td><span id="sleight_of_hand_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Stealth</td>
+                            <td> <span id="stealth_skill_mod">+0</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">&nbsp;Survival</td>
+                            <td><span id="survival_skill_mod">+0</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Features</h5>
+                    <textarea rows="35" cols="50"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <br>
     <div class="container">
