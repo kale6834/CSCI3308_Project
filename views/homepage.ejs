@@ -15,13 +15,34 @@
                 return mod_num.toString()
             }
         }
+        calc_prof = function(level_id) {
+            var level = document.getElementById(level_id).value
+            var proficiency = 2;
+            if (level >= 5 && level < 9) {
+                proficiency = 3;
+            }
+            else if (level >= 9 && level < 13) {
+                proficiency = 4;
+            }
+            else if (level >= 13 && level < 17) {
+                proficiency = 5;
+            }
+            else if (level >= 17) {
+                proficiency = 6;
+            }
+        }
         set_ability_mod = function(src_id, dest_id) {
             var ability_mod = Math.floor((Number(document.getElementById(src_id).value) - 10) / 2)
             document.getElementById(dest_id).innerHTML = "<strong>" + format_mod(ability_mod) + "</strong>"
         }
-        // set_skill_bonus = function(skill_id,ability_id,prof) {
-            
-        // }
+        set_skill_bonus = function(checkbox,skill_id,ability_id) {
+            var ability_mod = document.getElementById(ability_id)
+            var prof_bonus = 0
+            if (checkbox.checked) {
+                prof_bonus = calc_prof('char_level')
+            }
+            document.getElementById(skill_id).innerHTML = format_mod(ability_mod + prof)
+        }
     </script>
 
     <title>Home</title>
@@ -224,7 +245,7 @@
                         </a>-->
                         <table class="table table-hover">
                             <tr>
-                                <td><input type="checkbox">&nbsp;Acrobatics</td>
+                                <td><input type="checkbox" onchange="set_skill_bonus(this,'acrobatics_skill_mod','dex_mod')">&nbsp;Acrobatics</td>
                                 <td><span id="acrobatics_skill_mod">+0</span></td>
                             </tr>
                             <tr>
