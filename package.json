@@ -1,5 +1,5 @@
 {
-    "name": "server.js",
+    "name": "node-ejs",
     "main": "server.js",
     "dependencies": {
         "ejs": "^2.5.5",
