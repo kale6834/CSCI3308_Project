@@ -1,3 +1,4 @@
+var formidable = require("formidable");
 var express = require('express'); //Ensure our express framework has been added
 var bodyParser = require('body-parser'); //Ensure our body-parser tool has been added
 var app = express();
@@ -20,7 +21,7 @@ var dbConfig = process.env.DATABASE_URL;
 
 
 
-var db = pgp(dbConfig); 
+var db = pgp(dbConfig);
 var session = require('express-session');
 var path = require('path');
 app.use(session({
@@ -30,9 +31,12 @@ app.use(session({
 }));
 
 app.get('/', function(request, response) {
-    response.sendFile(__dirname +'/S.D._Project/Front_end/signup.html', {
+    res.render('pages/signup', {
         my_title: "Login Page"
     });
+    // response.sendFile(__dirname + '/S.D._Project/Front_end/signup.html', {
+    //     my_title: "Login Page"
+    // });
 });
 
 app.post('/auth', function(request, response) {
@@ -64,17 +68,61 @@ app.post('/auth', function(request, response) {
 });
 
 app.get('/homepage', function(request, response) {
+    res.render('pages/homepage', {
+        my_title: "Homepage"
+    });
     if (request.session.loggedin) {
-        // response.send('Welcome back, ' + request.session.username + '!');
-        //response.sendFile(__dirname + "/S.D. Project/Front end/homepage.html");
-        //response.end();
-        return response.render('/S.D._Project/Front_end/homepage.html');
-        // next();
+        res.redirect('/homepage');
+        // return response.redirect(__dirname + '/S.D._Project/Front_end/homepage.html');
     } else {
         response.render('Please login to view this page!');
     }
     response.end();
 });
+
+// cryptr = new Cryptr('myTotalySecretKey');
+
+db.register = function(req, res) {
+    var encryptedString = cryptr.encrypt(req.body.password);
+    var users = {
+        "name": req.body.name,
+        "email": req.body.email,
+        "password": encryptedString,
+        "created_at": today,
+        "updated_at": today
+    }
+    connection.query("INSERT INTO players SET '" + users + function(error, results, fields) {
+        if (error) {
+            res.json({
+                status: false,
+                message: 'there are some error with query'
+            })
+        } else {
+            res.json({
+                status: true,
+                data: results,
+                message: 'user registered sucessfully'
+            })
+        }
+    });
+}
+
+
+app.post('/signup', function(req, res) {
+    var username = fields.username;
+    var firstname = req.body.firstName;
+    var lastname = req.body.lastName;
+    var password = req.body.psw;
+    if (username && firstname && lastname && password) {
+        client.query("INSERT INTO players(username, firstname, lastname, password) values($1, $2, $3, $4)", [username, firstname, lastname, password]);
+        // res.send('Registered Successfully');
+        return res.redirect(__dirname + '/homepage.html');
+    } else {
+        res.send('Error inserting into database');
+    }
+
+});
+
 
 app.listen(process.env.PORT); //connects to heroku port
 
