@@ -94,6 +94,11 @@ app.post('/signup/select_user', function(req, res) {
     var password = req.body.psw;
     var insert_statement = "INSERT INTO players(username, firstname, lastname, password) VALUES('" + username + "','" +
         firstname + "','" + lastname + "'," + password + "');";
+    // db.query(insert_statement, function(error, results) {
+    //     if (error) throw error;
+    //     console.log("Record inserted Successfully");
+    // });
+    console.log(insert_statement);
     db.task('get-everything', task => {
             return task.batch([
                 task.any(insert_statement)
@@ -101,18 +106,14 @@ app.post('/signup/select_user', function(req, res) {
         })
         .then(info => {
             res.render('homepage', {
-                my_title: "Home Page",
-                data: info[1],
-                name: username
+                my_title: "Home Page"
             })
         })
         .catch(error => {
             // display error message in case an error
             req.flash('error', err);
             res.render('homepage', {
-                title: 'Home Page',
-                data: '',
-                name: ''
+                title: 'Home Page'
             })
         });
 
