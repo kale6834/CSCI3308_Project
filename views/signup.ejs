@@ -23,6 +23,8 @@
     <script type="text/javascript">
         function openModal() {
             var myInput = document.getElementById("psw");
+            var nameInput = document.getElementById("usrname");
+            var userInput = document.getElementById("firstlast");
             var confirmMyInput = document.getElementById("cpsw");
             var name = document.getElementById("name");
             var username = document.getElementById("username");
@@ -38,14 +40,14 @@
                 var upperCaseLetters = /[A-Z]/g; //
                 var numbers = /[0-9]/g;
                 var minLength = 8;
-                if (myInput.value.length > 1) {
+                if (nameInput.value.length > 1) {
                     username.classList.remove("invalid");
                     username.classList.add("valid");
                 } else {
                     username.classList.remove("valid");
                     username.classList.add("invalid");
                 }
-                if (myInput.value.length > 1) {
+                if (userInput.value.length > 1) {
                     name.classList.remove("invalid");
                     name.classList.add("valid");
                 } else {
@@ -148,10 +150,10 @@
                 </div>
                 <div class="modal-body">
                   <div class="form-group">
-                    <input type="text" class = "form-control" name="userName" placeholder="Username" required = "required">
+                    <input id = "usrname" type="text" class = "form-control" name="userName" placeholder="Username" required = "required">
                   </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="firstName" placeholder="First Name" required="required">
+                        <input id = "firstlast" type="text" class="form-control" name="firstName" placeholder="First Name" required="required">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="lastName" placeholder="Last Name" required="required">
