@@ -3,6 +3,7 @@ var bodyParser = require('body-parser'); //Ensure our body-parser tool has been 
 var app = express();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(express.static(path.join(__dirname, '/css')));
 
 //Create Database Connection
 var pgp = require('pg-promise')();
