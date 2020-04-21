@@ -81,7 +81,7 @@ app.get('/homepage', function(request, response) {
         });
         // return response.redirect(__dirname + '/S.D._Project/Front_end/homepage.html');
     } else {
-        response.render('Please login to view this page!');
+        response.send('Please login to view this page!');
     }
     response.end();
 });
