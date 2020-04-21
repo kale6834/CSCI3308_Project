@@ -20,16 +20,32 @@
             var ability_mod = Math.floor((Number(document.getElementById(src_id).value) - 10)/2)
             document.getElementById(dest_id).innerHTML = "<strong>" + format_mod(ability_mod) + "</strong>"
         }
+        // set_skill_bonus = function(skill_id,ability_id,prof) {
+            
+        // }
     </script>
 
     <title>Home</title>
     <style>
         table {
-            border-spacing: 20px 5px;
+            border-spacing: 10px 0px;
             border-collapse: separate;
         }
         body {
             background-color: rgb(26,26,40);
+        }
+        input[type=text] {
+            border: none;
+            font-size:20px;
+            border-bottom: 1px solid gray;
+        }
+        input[type=text]:focus {
+            border: 1px solid #262626;
+        }
+        input[type=number] {
+            text-align: center;
+            width: 45px;
+            height: 35px;
         }
     </style>
 </head>
@@ -44,86 +60,115 @@
             <a href="../code/login.html" class="btn btn-outline-secondary">Log Out</a>
           </span>
     </nav>
+    <br>
     <div class="container">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <header>
+                    <input type="text" id="char_name" class="form-control input-lg"> <span style="color:#a0a0a0">Character Name</span>
+                    </header>
+                </div>
+                            <!-- <a href="#" class="card-link">
+                                <h6 class="card-subtitle mb-2 text-muted">Add Trait</h6>
+                            </a> -->
                 <div class="card-body">
-                    <h5 class="card-title">
-                        <input type="text" id="char_name"> <small><span style="color:#a0a0a0">Character Name</span></small>
-                    </h5>
-                    <!-- <a href="#" class="card-link">
-                        <h6 class="card-subtitle mb-2 text-muted">Add Trait</h6>
-                    </a> -->
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Race</th>
-                                <th scope="col">Class</th>
-                                <th scope="col">Level</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="text" id="char_race"></input></td>
-                                <td><input type="text" id="char_class"></input></td>
-                                <td><input type="number" min="1" max="20" value="1" id="char_level" style="text-align: center; width: 45px"></input></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <div class=col-5>
+                                <input class="form-control" type="text" id="char_race"></input>
+                                <label for="char_race">Race</label>
+                            </div>
+                            <div class="col-5">
+                                <input class="form-control" type="text" id="char_class"></input>
+                                <label for="char_class">Class</label>
+                            </div>
+                            <div class="col-2">
+                                <input class="form-control" type="number" min="1" max="20" value="1" id="char_level" style="text-align: center; width: 60px"></input>
+                                <label for="char_level">Level</label>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-2">
                 <div class="card">
                     <div class="card">
                         <div class="card-body">
-                            STR
-                            <br>
-                            <h3><span id="str_mod">+0</span></h3>
-                            <input type="number" id="str_attr" style="text-align: center; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('str_attr','str_mod')"></input>
+                            <div style="float:left; margin:0; width:50%;">
+                                STR
+                                <br>
+                                <h3><span id="str_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <br>
+                                <input type="number" id="str_attr" style="text-align: center; height:35px; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('str_attr','str_mod')"></input>
+                            </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            DEX
-                            <br>
-                            <h3><span id="dex_mod">+0</span></td></h3>
-                            <input type="number" id="dex_attr" style="text-align: center; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
+                            <div style="float:left; margin:0; width:50%;">
+                                DEX
+                                <br>
+                                <h3><span id="dex_mod">+0</span></td></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <input type="number" id="dex_attr" style="k" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
+                            </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            CON
-                            <br>
-                            <h3><span id="con_mod">+0</span></h3>
-                            <input type="number" id="con_attr" style="text-align: center; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('con_attr','con_mod')"></input>
+                            <div style="float:left; margin:0; width:50%;">
+                                CON
+                                <br>
+                                <h3><span id="con_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <input type="number" id="con_attr" min="0" max="30" value="10" oninput="set_ability_mod('con_attr','con_mod')"></input>
+                            </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            INT
-                            <br>
-                            <h3><span id="int_mod">+0</span></h3>
-                            <input type="number" id="int_attr" style="text-align: center; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('int_attr','int_mod')"></input>
+                            <div style="float:left; margin:0; width:50%;">
+                                INT
+                                <br>
+                                <h3><span id="int_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <input type="number" id="int_attr" min="0" max="30" value="10" oninput="set_ability_mod('int_attr','int_mod')"></input>
+                            </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            WIS
-                            <br>
-                            <h3><span id="wis_mod">+0</span></h3>
-                            <input type="number" id="wis_attr" style="text-align: center; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('wis_attr','wis_mod')"></input>
+                            <div style="float:left; margin:0; width:50%;">
+                                WIS
+                                <br>
+                                <h3><span id="wis_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <input type="number" id="wis_attr" min="0" max="30" value="10" oninput="set_ability_mod('wis_attr','wis_mod')"></input>
+                            </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            CHA
-                            <br>
-                            <h3><span id="cha_mod">+0</span></h3>
-                            <input type="number" id="cha_attr" style="text-align: center; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('cha_attr','cha_mod')"></input>
+                            <div style="float:left; margin:0; width:50%;">
+                                CHA
+                                <br>
+                                <h3><span id="cha_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <input type="number" id="cha_attr" min="0" max="30" value="10" oninput="set_ability_mod('cha_attr','cha_mod')"></input>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -135,7 +180,7 @@
                         <!--<a href="#" class="card-link">
                             <h6 class="card-subtitle mb-2 text-muted">Add Skill</h6>
                         </a>-->
-                        <table class="table">
+                        <table class="table table-hover">
                             <tr>
                                 <td><input type="checkbox">&nbsp;Acrobatics</td>
                                 <td><span id="acrobatics_skill_mod">+0</span></td>
@@ -214,6 +259,7 @@
             </div>
         </div>
     </div>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col">
