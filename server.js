@@ -29,7 +29,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.get('/', function(request, response) {
+app.get('/', function(req, res) {
     res.render('pages/signup', {
         my_title: "Signup Page"
     });
