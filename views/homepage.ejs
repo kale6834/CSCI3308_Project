@@ -92,11 +92,13 @@
     <div class="container">
         <div class="col-12">
             <div class="card">
-                <div class="card-header" action="homepage/select_user" method="get">
-                    <header>
-                        <input type="text" id="char_name" class="form-control input-lg"> <span style="color:#a0a0a0"><%= item.name ? item.name : '' %></span>
-                    </header>
-                </div>
+                <form class="form" action="homepage/select_user" method="get" name="player_choice">
+                    <div class="card-header">
+                        <header>
+                            <input type="text" id="char_name" class="form-control input-lg"> <span style="color:#a0a0a0"><%= name ? name : '' %></span>
+                        </header>
+                    </div>
+                </form>
                 <!-- <a href="#" class="card-link">
                                 <h6 class="card-subtitle mb-2 text-muted">Add Trait</h6>
                             </a> -->
