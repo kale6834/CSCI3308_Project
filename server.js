@@ -4,7 +4,6 @@ var app = express();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(express.static(path.join(__dirname, '/css')));
-
 //Create Database Connection
 var pgp = require('pg-promise')();
 
@@ -120,19 +119,20 @@ app.post('/signup/select_user', function(req, res) {
 });
 
 app.get('/homepage/select_user', function(req, res) {
-    var player_options = 'select * from players;';
-    var user_select = "select username from players where username = '" + username + "';";
+    var player_id = req.query.player_choice;
+    var list_players = 'select player_id, name from players;';
+    var chosen_player = 'select * from players where player_id=' + player_id + ';';
     db.task('get-everything', task => {
             return task.batch([
-                task.any(player_options),
-                task.any(user_select)
+                task.any(list_players),
+                task.any(chosen_player)
             ]);
         })
         .then(info => {
             res.render('homepage', {
                 my_title: "Home Page",
-                data: info[1],
-                name: username
+                players: data[0],
+                name: data[1]
             })
         })
         .catch(error => {
