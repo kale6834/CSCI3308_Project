@@ -32,7 +32,7 @@ app.use(session({
 }));
 
 app.get('/', function(req, res) {
-    res.render('Front_end/signup', {
+    res.render('signup', {
         my_title: "Signup Page"
     });
     // response.sendFile(__dirname + '/S.D._Project/Front_end/signup.html', {
@@ -41,7 +41,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/login', function(req, res) {
-    res.render('Front_end/login', {
+    res.render('login', {
         my_title: "Login Page"
     });
 })
@@ -75,7 +75,7 @@ app.post('/auth', function(request, response) {
 });
 
 app.get('/homepage', function(request, response) {
-    res.render('Front_end/homepage', {
+    res.render('homepage', {
         my_title: "Homepage"
     });
     if (request.session.loggedin) {
