@@ -75,11 +75,10 @@ app.post('/auth', function(request, response) {
 });
 
 app.get('/homepage', function(request, response) {
-    response.render('homepage', {
-        my_title: "Homepage"
-    });
     if (request.session.loggedin) {
-        response.redirect('/homepage');
+        response.render('homepage', {
+            my_title: "Homepage"
+        });
         // return response.redirect(__dirname + '/S.D._Project/Front_end/homepage.html');
     } else {
         response.render('Please login to view this page!');
