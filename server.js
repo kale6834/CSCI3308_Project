@@ -32,7 +32,7 @@ app.use(session({
 }));
 
 app.get('/', function(req, res) {
-    res.render('signup.html', {
+    res.render('signup', {
         my_title: "Signup Page"
     });
     // response.sendFile(__dirname + '/S.D._Project/Front_end/signup.html', {
