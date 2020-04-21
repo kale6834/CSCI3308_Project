@@ -131,8 +131,8 @@ app.get('/homepage/select_user', function(req, res) {
         .then(info => {
             res.render('homepage', {
                 my_title: "Home Page",
-                players: data[0],
-                name: data[0][1]
+                players: info[0],
+                name: info[0][1]
 
             })
             console.log(name)
