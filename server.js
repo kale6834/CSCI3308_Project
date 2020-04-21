@@ -21,6 +21,8 @@ var dbConfig = process.env.DATABASE_URL;
 
 
 var db = pgp(dbConfig);
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/')); //This line is necessary for us to use relative paths and access our resources directory
 var session = require('express-session');
 var path = require('path');
 app.use(session({
