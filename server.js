@@ -3,13 +3,15 @@ var bodyParser = require('body-parser'); //Ensure our body-parser tool has been 
 var app = express();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-
+// app.use(express.static(path.join(__dirname, '/css')));
 //Create Database Connection
 var pgp = require('pg-promise')();
 
 
 var dbConfig = process.env.DATABASE_URL;
 
+
+//var dbConfig = postgres://fokxovrlpssdqp:f1752a76d748490250359ff737c6f26e08a07e47da5b765d0afdeb34edf96166@ec2-34-193-232-231.compute-1.amazonaws.com:5432/d23tobmqht1lf5
 // const dbConfig = {
 //     host: 'localhost',
 //     port: 5432,
@@ -50,7 +52,7 @@ app.get('/login', function(req, res) {
 app.post('/auth', function(request, response) {
     var username = request.body.username;
     var password = request.body.password;
-    console.log(username, password);
+    // console.log(username, password);
     if (username && password) {
         var query = "SELECT * FROM players WHERE username ='" + username + "'AND password = '" + password + "'";
         console.log(query);
@@ -75,25 +77,14 @@ app.post('/auth', function(request, response) {
     }
 });
 
-app.get('/homepage', function(request, response) {
-    if (request.session.loggedin) {
-        response.render('homepage', {
-            my_title: "Homepage"
-        });
-        // return response.redirect(__dirname + '/S.D._Project/Front_end/homepage.html');
-    } else {
-        response.send('Please login to view this page!');
-    }
-    response.end();
-});
-
 app.post('/signup/select_user', function(req, res) {
     var username = req.body.username;
     var firstname = req.body.firstName;
     var lastname = req.body.lastName;
-    var password = req.body.psw;
-    var insert_statement = "INSERT INTO players(username, firstname, lastname, password) VALUES('" + username + "','" +
-        firstname + "','" + lastname + "'," + password + "');";
+    var password = req.body.password;
+    var insert_statement = "INSERT INTO players(username, firstname, lastname, password) VALUES('" + username + "','" + firstname + "','" + lastname + "','" + password + "');";
+    // console.log(username, firstname, lastname, password);
+    // console.log(insert_statement);
     db.task('get-everything', task => {
             return task.batch([
                 task.any(insert_statement)
@@ -101,51 +92,49 @@ app.post('/signup/select_user', function(req, res) {
         })
         .then(info => {
             res.render('homepage', {
-                my_title: "Home Page",
-                data: info[1],
                 name: username
             })
         })
         .catch(error => {
             // display error message in case an error
-            req.flash('error', err);
+            console.log(error);
             res.render('homepage', {
-                title: 'Home Page',
-                data: '',
-                name: ''
+                title: 'Home Page'
             })
         });
 
 });
 
-app.get('/homepage/select_user', function(req, res) {
-    var player_options = 'select * from players;';
-    var user_select = "select username from players where username = '" + username + "';";
+app.get('/homepage', function(req, res) {
+    var user = 'select username from players;';
     db.task('get-everything', task => {
             return task.batch([
-                task.any(player_options),
-                task.any(user_select)
+                task.any(user)
             ]);
         })
         .then(info => {
+            console.log(info);
             res.render('homepage', {
                 my_title: "Home Page",
-                data: info[1],
-                name: username
+                name: info[0][0].username
+
             })
         })
         .catch(error => {
             // display error message in case an error
-            req.flash('error', err);
+            console.log(error);
             res.render('homepage', {
                 title: 'Home Page',
-                data: '',
                 name: ''
             })
         });
 });
 
-
-app.listen(process.env.PORT); //connects to heroku port
-
+app.get('/meettheteam', function(req, res) {
+    res.render('meettheteam', {
+        my_title: "Meet the team!"
+    });
+})
+//connects to heroku port
+app.listen(process.env.PORT);
 // app.listen(3000);

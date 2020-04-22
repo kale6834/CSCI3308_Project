@@ -19,6 +19,90 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel='stylesheet' type='text/css' href='/css/signup.css' />
+    <script type="text/javascript">
+        function openModal() {
+            var password = document.getElementById("psw"); //myInput
+            var confirmPassword = document.getElementById("cpsw"); //confirmInput
+            var firstName = document.getElementById("firstName");
+            var lastName = document.getElementById("lastName");
+            var username = document.getElementById("username");
+            var letter = document.getElementById("letter");
+            var capital = document.getElementById("capital");
+            var number = document.getElementById("number");
+            var length = document.getElementById("length");
+            var match = document.getElementById("match");
+            // When the user starts to type something inside the password field
+            password.onkeyup = function() {
+                // console.log('helllooo')
+                var lowerCaseLetters = /[a-z]/g; //
+                var upperCaseLetters = /[A-Z]/g; //
+                var numbers = /[0-9]/g;
+                var minLength = 8;
+                if (username.value.length > 1) {
+                    username.classList.remove("invalid");
+                    username.classList.add("valid");
+                } else {
+                    username.classList.remove("valid");
+                    username.classList.add("invalid");
+                }
+                if (firstName.value.length > 1 && lastName.value.length > 1) {
+                    firstName.classList.remove("invalid");
+                    firstName.classList.add("valid");
+                    lastName.classList.remove("invalid");
+                    lastName.classList.add("valid");
+                } else {
+                    firstName.classList.remove("valid");
+                    firstName.classList.add("invalid");
+                    lastName.classList.remove("valid");
+                    lastName.classList.add("invalid");
+                }
+                if (password.value.match(lowerCaseLetters)) {
+                    letter.classList.remove("invalid");
+                    letter.classList.add("valid");
+                } else {
+                    letter.classList.remove("valid");
+                    letter.classList.add("invalid");
+                }
+                // Validate capital letters
+                if (password.value.match(upperCaseLetters)) {
+                    capital.classList.remove("invalid");
+                    capital.classList.add("valid");
+                } else {
+                    capital.classList.remove("valid");
+                    capital.classList.add("invalid");
+                }
+                // Validate numbers
+                if (password.value.match(numbers)) {
+                    number.classList.remove("invalid");
+                    number.classList.add("valid");
+                } else {
+                    number.classList.remove("valid");
+                    number.classList.add("invalid");
+                }
+                // Validate length
+                if (password.value.length >= minLength) {
+                    length.classList.remove("invalid");
+                    length.classList.add("valid");
+                } else {
+                    length.classList.remove("valid");
+                    length.classList.add("invalid");
+                }
+            }
+            confirmPassword.onkeyup = function() {
+                // Validate password and confirmPassword
+                var passEqualsConfPass = (password.value == confirmPassword.value);
+                if (passEqualsConfPass) {
+                    match.classList.remove("invalid");
+                    match.classList.add("valid");
+                } else {
+                    match.classList.remove("valid");
+                    match.classList.add("invalid");
+                }
+                // enableButton(letter, capital, number, length, match);
+            }
+        }
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -34,11 +118,10 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/homepage">D&D Tracker</a>
+                <a class="navbar-brand">D&D Tracker</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/homepage">Home page</a></li>
-                <li><a href="/login">Sign-Up Page</a></li>
+                <li><a href="/login">Login Page</a></li>
             </ul>
         </div>
     </nav>
@@ -52,40 +135,63 @@
 
     <!-- </div> -->
 
-    <div class="modal-body">
-        <div class="form-group">
-            <input type="text" class="form-control" name="username" id="username" placeholder="Username" required="required">
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" name="firstname" id="firstName" placeholder="First Name" required="required">
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" name="lastname" id="lastName" placeholder="Last Name" required="required">
-        </div>
-        <div class="form-group">
-            <input id="psw" type="password" class="form-control" name="password" placeholder="Password" required="required">
-        </div>
-        <div class="form-group">
-            <input id="cpsw" type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
-        </div>
-        <div class="form-group">
-            <button id="my_submit_button" class="btn btn-primary btn-block login-btn">Sign Up</button>
-            <a href="login"><button id="my_login_button" class="btn btn-primary btn-block"> *Login Here if you already have an account*</button></a>
+    <div class="text-center">
+        <a href="#myModal" class="btn btn-info" data-toggle="modal" onclick="openModal()">Click to Open Sign Up
+  			Modal</a>
+    </div>
+
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="avatar">
+                        <img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
+                    </div>
+                    <h4 class="modal-title">Sign Up page</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <form action="/signup/select_user" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input id="username" type="text" class="form-control" name="username" placeholder="Username" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input id="firstName" type="text" class="form-control" name="firstName" placeholder="First Name" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input id="lastName" type="text" class="form-control" name="lastName" placeholder="Last Name" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input id="psw" type="password" class="form-control" name="password" placeholder="Password" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input id="cpsw" type="password" class="form-control" name="cpassword" placeholder="Confirm Password" required="required">
+                        </div>
+                        <div class="form-group">
+                            <button id="my_submit_button" class="btn btn-primary btn-block login-btn">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <div id="message" style="display:block">
+                        <h3>Your account must contain the following:</h3>
+                        <p id="name" class="invalid">A <b> first and last </b>name</b>
+                        </p>
+                        <p id="username" class="invalid">A <b> unique </b>username</b>
+                        </p>
+                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                        <p id="number" class="invalid">A <b>number</b></p>
+                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                        <p id="match" class="invalid">Password and Confirm Password Match</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="modal-body">
-        <div id="message" style="display:block">
-            <h3>Your account must contain :</h3>
-            <p id="letter" class="invalid">A <b>First & Last</b> name</p>
-            <p id="letter1" class="invalid">A <b>Unique</b> username</p>
-            <h3>Your Password must contain :</h3>
-            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-            <p id="number" class="invalid">A <b>number</b></p>
-            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-            <p id="match" class="invalid">Password and Confirm Password Match</p>
-        </div>
-        <!-- Ignore the code below. All of this is just for the code description -->
-        <!-- End of -->
+    <!-- Ignore the code below. All of this is just for the code description -->
+    <!-- End of -->
 </body>
 
 </html>

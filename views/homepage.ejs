@@ -48,20 +48,21 @@
             border-spacing: 10px 0px;
             border-collapse: separate;
         }
+
         body {
             background-color: rgb(26, 26, 40);
         }
-        
+
         input[type=text] {
             border: none;
             font-size: 20px;
             border-bottom: 1px solid gray;
         }
-        
+
         input[type=text]:focus {
             border: 1px solid #262626;
         }
-        
+
         input[type=number] {
             text-align: center;
             width: 45px;
@@ -69,7 +70,7 @@
             border: none;
             border-right: 1px solid gray;
         }
-        
+
         input[type=number]:focus {
             text-align: left;
             border: 1px solid #262626;
@@ -78,12 +79,14 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light" name="player_choice">
         <a class="navbar-brand">
-            <img src="1200px-Dungeons_&_Dragons_5th_Edition_logo.svg.png" width="100" height="45" alt="Dungeons and Dragons logo">
+            <img src="/D&D.jpeg" width="100" height="45" alt="Dungeons and Dragons logo">
         </a>
-        <img src="NEW_TO_DD_Classes_Ranger_T_140723.jpg" class="center avatar" alt="Image of D&D player that has logged in.">
-        <span class="navbar-text">
+        <!-- <img src="NEW_TO_DD_Classes_Ranger_T_140723.jpg" class="center avatar" alt="Image of D&D player that has logged in."> -->
+        <%= name %>
+
+            <span class="navbar-text">
             <a href="login" class="btn btn-outline-secondary">Log Out</a>
           </span>
     </nav>
@@ -93,19 +96,15 @@
             <div class="card">
                 <div class="card-header">
                     <header>
-                        <input type="text" id="char_name" class="form-control input-lg"> <span style="color:#a0a0a0"><%= name ? name : '' %></span>
+                        <input type="text" id="char_name" class="form-control input-lg"> <span style="color:#a0a0a0">Character Name</span>
                     </header>
                 </div>
                 <!-- <a href="#" class="card-link">
                                 <h6 class="card-subtitle mb-2 text-muted">Add Trait</h6>
                             </a> -->
                 <div class="card-body">
-<<<<<<< HEAD
                     <!-- <<<<<<< HEAD:S.D._Project/Front_end/homepage.html -->
                     <form class="form-inline">
-=======
-                    <<<<<<< HEAD:S.D._Project/Front_end/homepage.html <form class="form-inline">
->>>>>>> 3ae28395f3d3bd168879cb35e3eb7c451f886ff2
                         <div class="form-group">
                             <div class=col-5>
                                 <input class="form-control" type="text" id="char_race"></input>
@@ -120,40 +119,10 @@
                                 <label for="char_level">Level</label>
                             </div>
                         </div>
-<<<<<<< HEAD
                     </form>
+                    =======
                     <!-- ======= -->
-                   <!-- >>>>>>> bc0eea3af2b72c4033dd4341ccec08599c8cc731:views/homepage.ejs -->
-=======
-                        </form>
-                        =======
-                        <h5 class="card-title">
-                            <input type="text" id="char_name"> <small><span style="color:#a0a0a0">Character Name</span></small>
-                        </h5>
-                        <!-- <a href="#" class="card-link">
-                        <h6 class="card-subtitle mb-2 text-muted">Add Trait</h6>
-                    </a> -->
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Race</th>
-                                    <th scope="col">Class</th>
-                                    <th scope="col">Level</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="text" id="char_race"></input>
-                                    </td>
-                                    <td><input type="text" id="char_class"></input>
-                                    </td>
-                                    <td><input type="number" min="1" max="20" value="1" id="char_level" style="text-align: center; width: 45px"></input>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        >>>>>>> bc0eea3af2b72c4033dd4341ccec08599c8cc731:views/homepage.ejs
->>>>>>> 3ae28395f3d3bd168879cb35e3eb7c451f886ff2
+                    <!-- >>>>>>> bc0eea3af2b72c4033dd4341ccec08599c8cc731:views/homepage.ejs -->
                 </div>
             </div>
         </div>
@@ -178,11 +147,11 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <<<<<<< HEAD:S.D._Project/Front_end/homepage.html <div style="float:left; margin:0; width:50%;">
-                                DEX
-                                <br>
-                                <h3><span id="dex_mod">+0</span></td>
-                                </h3>
+                            <!--<<<<<<< HEAD:S.D._Project/Front_end/homepage.html <div style="float:left; margin:0; width:50%;"> -->
+                            DEX
+                            <br>
+                            <h3><span id="dex_mod">+0</span></td>
+                            </h3>
                         </div>
                         <div style="float:left; margin:0; width:50%;">
                             <input type="number" id="dex_attr" style="k" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
@@ -192,7 +161,7 @@
                         <h3><span id="dex_mod">+0</span></td>
                         </h3>
                         <input type="number" id="dex_attr" style="text-align: center; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
-                        >>>>>>> bc0eea3af2b72c4033dd4341ccec08599c8cc731:views/homepage.ejs
+                        <!-- >>>>>>> bc0eea3af2b72c4033dd4341ccec08599c8cc731:views/homepage.ejs -->
                     </div>
                 </div>
                 <div class="card">
