@@ -131,7 +131,7 @@ app.get('/homepage', function(req, res) {
 });
 
 app.get('/meettheteam', function(req, res) {
-    res.render('/public/meettheteam', {
+    res.render('/meettheteam', {
         my_title: "Meet the team!"
     });
 })
