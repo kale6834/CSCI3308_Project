@@ -208,76 +208,79 @@
                         <!--<a href="#" class="card-link">
                                 <h6 class="card-subtitle mb-2 text-muted">Add Skill</h6>
                             </a>-->
-                        <table class="table table-hover">
-                            <tr>
-                                <td><input type="checkbox" id="acrobatics_prof" onchange="set_skill_bonus('acrobatics_prof','acrobatics_skill_mod','dex_attr')">&nbsp;Acrobatics</td>
-                                <td><span id="acrobatics_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="animal_handling_prof" onchange="set_skill_bonus('animal_handling_prof','animal_handling_skill_mod','wis_attr')">&nbsp;Animal Handling</td>
-                                <td><span id="animal_handling_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="athletics_prof" onchange="set_skill_bonus('athletics_prof','athletics_skill_mod','str_attr')">&nbsp;Athletics</td>
-                                <td><span id="athletics_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="deception_prof" onchange="set_skill_bonus('deception_prof','deception_skill_mod','cha_attr')">&nbsp;Deception</td>
-                                <td><span id="animal_handling_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="history_prof" onchange="set_skill_bonus('history_prof','history_skill_mod','int_attr')">&nbsp;History</td>
-                                <td> <span id="history_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="insight_prof" onchange="set_skill_bonus('insight_prof','insight_skill_mod','wis_attr')">&nbsp;Insight</td>
-                                <td><span id="insight_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="intimidation_prof" onchange="set_skill_bonus('intimidation_prof','intimidation_skill_mod','cha_attr')">&nbsp;Intimidation</td>
-                                <td><span id="intimidation_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="investigation_prof" onchange="set_skill_bonus('investigation_prof','investigation_skill_mod','int_attr')">&nbsp;Investigation</td>
-                                <td><span id="investigation_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="medicine_prof" onchange="set_skill_bonus('medicine_prof','medicine_skill_mod','wis_attr')">&nbsp;Medicine</td>
-                                <td><span id="medicine_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="nature_prof" onchange="set_skill_bonus('nature_prof','nature_skill_mod','int_attr')">&nbsp;Nature</td>
-                                <td><span id="nature_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="perception_prof" onchange="set_skill_bonus('perception_prof','perception_skill_mod','wis_attr')">&nbsp;Perception</td>
-                                <td> <span id="perception_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="performance_prof" onchange="set_skill_bonus('performance_prof','performance_skill_mod','cha_attr')">&nbsp;Performance</td>
-                                <td><span id="performance_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="persuasion_prof" onchange="set_skill_bonus('persuasion_prof','persuasion_skill_mod','cha_attr')">&nbsp;Persuasion</td>
-                                <td><span id="persuasion_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="religion_prof" onchange="set_skill_bonus('religion_prof','religion_skill_mod','int_attr')">&nbsp;Religion</td>
-                                <td><span id="religion_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="sleight_of_hand_prof" onchange="set_skill_bonus('sleight_of_hand_prof','sleight_of_hand_skill_mod','dex_attr')">&nbsp;Sleight of Hand</td>
-                                <td><span id="sleight_of_hand_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="stealth_prof" onchange="set_skill_bonus('stealth_prof','stealth_skill_mod','dex_attr')">&nbsp;Stealth</td>
-                                <td> <span id="stealth_skill_mod">+0</span></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" id="survival_prof" onchange="set_skill_bonus('survival_prof','survival_skill_mod','wis_attr')">&nbsp;Survival</td>
-                                <td><span id="survival_skill_mod">+0</span></td>
-                            </tr>
-                        </table>
+                        <form action="homepage/create_user">
+                            <table class="table table-hover">
+                                <tr>
+                                    <td><input type="checkbox" id="acrobatics_prof" onchange="set_skill_bonus('acrobatics_prof','acrobatics_skill_mod','dex_attr')">&nbsp;Acrobatics</td>
+                                    <td><span id="acrobatics_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="animal_handling_prof" onchange="set_skill_bonus('animal_handling_prof','animal_handling_skill_mod','wis_attr')">&nbsp;Animal Handling</td>
+                                    <td><span id="animal_handling_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="athletics_prof" onchange="set_skill_bonus('athletics_prof','athletics_skill_mod','str_attr')">&nbsp;Athletics</td>
+                                    <td><span id="athletics_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="deception_prof" onchange="set_skill_bonus('deception_prof','deception_skill_mod','cha_attr')">&nbsp;Deception</td>
+                                    <td><span id="deception_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="history_prof" onchange="set_skill_bonus('history_prof','history_skill_mod','int_attr')">&nbsp;History</td>
+                                    <td> <span id="history_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="insight_prof" onchange="set_skill_bonus('insight_prof','insight_skill_mod','wis_attr')">&nbsp;Insight</td>
+                                    <td><span id="insight_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="intimidation_prof" onchange="set_skill_bonus('intimidation_prof','intimidation_skill_mod','cha_attr')">&nbsp;Intimidation</td>
+                                    <td><span id="intimidation_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="investigation_prof" onchange="set_skill_bonus('investigation_prof','investigation_skill_mod','int_attr')">&nbsp;Investigation</td>
+                                    <td><span id="investigation_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="medicine_prof" onchange="set_skill_bonus('medicine_prof','medicine_skill_mod','wis_attr')">&nbsp;Medicine</td>
+                                    <td><span id="medicine_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="nature_prof" onchange="set_skill_bonus('nature_prof','nature_skill_mod','int_attr')">&nbsp;Nature</td>
+                                    <td><span id="nature_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="perception_prof" onchange="set_skill_bonus('perception_prof','perception_skill_mod','wis_attr')">&nbsp;Perception</td>
+                                    <td> <span id="perception_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="performance_prof" onchange="set_skill_bonus('performance_prof','performance_skill_mod','cha_attr')">&nbsp;Performance</td>
+                                    <td><span id="performance_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="persuasion_prof" onchange="set_skill_bonus('persuasion_prof','persuasion_skill_mod','cha_attr')">&nbsp;Persuasion</td>
+                                    <td><span id="persuasion_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="religion_prof" onchange="set_skill_bonus('religion_prof','religion_skill_mod','int_attr')">&nbsp;Religion</td>
+                                    <td><span id="religion_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sleight_of_hand_prof" onchange="set_skill_bonus('sleight_of_hand_prof','sleight_of_hand_skill_mod','dex_attr')">&nbsp;Sleight of Hand</td>
+                                    <td><span id="sleight_of_hand_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="stealth_prof" onchange="set_skill_bonus('stealth_prof','stealth_skill_mod','dex_attr')">&nbsp;Stealth</td>
+                                    <td> <span id="stealth_skill_mod">+0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="survival_prof" onchange="set_skill_bonus('survival_prof','survival_skill_mod','wis_attr')">&nbsp;Survival</td>
+                                    <td><span id="survival_skill_mod">+0</span></td>
+                                </tr>
+                            </table>
+                            <button id="my_submit_button" class="btn btn-primary btn-block login-btn">Save</button>
+                        </form>
                     </div>
                 </div>
             </div>
