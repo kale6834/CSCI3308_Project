@@ -35,7 +35,7 @@
             document.getElementById(dest_id).innerHTML = "<strong>" + format_mod(ability_mod) + "</strong>"
         }
         set_skill_bonus = function(checkbox_id, skill_id, ability_id) {
-            var ability_mod = Number(document.getElementById(ability_id).innerHTML)
+            var ability_mod = Number(document.getElementById(ability_id).innerHTML.slice(1))
             var prof_bonus = 0
             if (document.getElementById(checkbox_id).checked) {
                 prof_bonus = calc_prof('char_level')
