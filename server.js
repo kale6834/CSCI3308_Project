@@ -130,7 +130,11 @@ app.get('/homepage', function(req, res) {
         });
 });
 
-
+app.get('/meettheteam', function(req, res) {
+    res.render('meettheteam', {
+        my_title: "Meet the team!"
+    });
+})
 //connects to heroku port
 app.listen(process.env.PORT);
 // app.listen(3000);
