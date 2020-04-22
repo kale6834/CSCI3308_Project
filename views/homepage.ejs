@@ -16,7 +16,7 @@
             }
         }
         calc_prof = function(level_id) {
-            var level = document.getElementById(level_id).value
+            var level = Number(document.getElementById(level_id).value)
             var proficiency = 2;
             if (level >= 5 && level < 9) {
                 proficiency = 3;
@@ -33,11 +33,11 @@
             document.getElementById(dest_id).innerHTML = "<strong>" + format_mod(ability_mod) + "</strong>"
         }
         set_skill_bonus = function(checkbox, skill_id, ability_id) {
-            var ability_mod = document.getElementById(ability_id)
+            var ability_mod = Number(document.getElementById(ability_id))
             var prof_bonus = 0
-            if (checkbox.checked) {
-                prof_bonus = calc_prof('char_level')
-            }
+            //  if (checkbox.checked) {
+            //      prof_bonus = calc_prof('char_level')
+            //  }
             document.getElementById(skill_id).innerHTML = format_mod(ability_mod + prof_bonus)
         }
     </script>
@@ -187,7 +187,7 @@
                         <div style="float:left; margin:0; width:50%;">
                             <input type="number" id="dex_attr" style="k" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
                         </div>
-                        ======= DEX
+                        <! -- ======= DEX -->
                         <br>
                         <h3><span id="dex_mod">+0</span></td>
                         </h3>
