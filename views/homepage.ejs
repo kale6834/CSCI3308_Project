@@ -90,16 +90,16 @@
                                   <form action="/homepage/create_user" method="post">
                                       <div class="modal-body">
                                           <div class="form-group">
-                                            <input type="text" id="char_name" class="form-control input-lg" name ="char_name"> <span style="color:#a0a0a0">Character Name</span>
+                                            <input type="text" id="char_name" class="form-control input-lg" name ="char_name" required="required" placeholder="Character Name"> <span style="color:#a0a0a0"></span>
                                           </div>
                                           <div class="form-group">
-                                              <input id="charrace" type="text" class="form-control" name="char_race" placeholder="First Name" required="required">
+                                              <input id="charrace" type="text" class="form-control" name="char_race" placeholder="Character Race" required="required">
                                           </div>
                                           <div class="form-group">
-                                              <input id="charclass" type="text" class="form-control" name="char_class" placeholder="Last Name" required="required">
+                                              <input id="charclass" type="text" class="form-control" name="char_class" placeholder="Character Class" required="required">
                                           </div>
                                           <div class="form-group">
-                                            <input class="form-control" type="number" min="1" max="20" value="1" id="char_level" style="text-align: center; width: 60px"></input>
+                                            <input class="form-control" type="number" min="1" max="20" value="1" id="char_level" name="level" style="text-align: center; width: 60px"></input>
                                             <label for="char_level">Level</label>
                                           </div>
                                           <div class="form-group">
