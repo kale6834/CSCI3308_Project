@@ -33,10 +33,10 @@
             var ability_mod = Math.floor((Number(document.getElementById(src_id).value) - 10) / 2)
             document.getElementById(dest_id).innerHTML = "<strong>" + format_mod(ability_mod) + "</strong>"
         }
-        set_skill_bonus = function(checkbox, skill_id, ability_id) {
+        set_skill_bonus = function(checkbox_id, skill_id, ability_id) {
             var ability_mod = Number(document.getElementById(ability_id))
             var prof_bonus = 0
-            if (checkbox.checked) {
+            if (document.getElementById(checkbox_id).checked) {
                 prof_bonus = calc_prof('char_level')
             }
             document.getElementById(skill_id).innerHTML = format_mod(ability_mod + prof_bonus)
@@ -99,17 +99,17 @@
                                             <input type="text" id="char_name" class="form-control input-lg" name ="char_name" required="required" placeholder="Character Name"> <span style="color:#a0a0a0"></span>
                                           </div>
                                           <div class="form-group">
-                                              <input id="charrace" type="text" class="form-control" name="char_race" placeholder="Character Race" required="required">
+                                              <input id="charrace" type="text" class="form-control" name="char_race" placeholder="Race" required="required">
                                           </div>
                                           <div class="form-group">
-                                              <input id="charclass" type="text" class="form-control" name="char_class" placeholder="Character Class" required="required">
+                                              <input id="charclass" type="text" class="form-control" name="char_class" placeholder="Class" required="required">
                                           </div>
                                           <div class="form-group">
                                             <input class="form-control" type="number" min="1" max="20" value="1" id="char_level" name="level" style="text-align: center; width: 60px"></input>
                                             <label for="char_level">Level</label>
                                           </div>
                                           <div class="form-group">
-                                              <button id="my_submit_button" class="btn btn-primary btn-block login-btn">Submit</button>
+                                              <button id="my_submit_button" class="btn btn-primary btn-block login-btn">Save</button>
                                           </div>
                                       </div>
                                   </form>
@@ -121,33 +121,32 @@
     <div class="container">
         <div class="row">
             <div class="col-2">
+              <form action="/homepage/create_user" method="post">
                 <div class="card">
-                    <div class="card">
-                        <div class="card-body">
-                            <div style="float:left; margin:0; width:50%;">
-                                STR
-                                <br>
-                                <h3><span id="str_mod">+0</span></h3>
-                            </div>
-                            <div style="float:left; margin:0; width:50%;">
-                                <br>
-                                <input type="number" id="str_attr" style="text-align: center; height:35px; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('str_attr','str_mod')"></input>
-                            </div>
+                    <div class="card-body">
+                        <div style="float:left; margin:0; width:50%;">
+                            STR
+                            <br>
+                            <h3><span id="str_mod">+0</span></h3>
+                        </div>
+                        <div style="float:left; margin:0; width:50%;">
+                            <br>
+                            <input type="number" id="str_attr" style="text-align: center; height:35px; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('str_attr','str_mod')"></input>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                             <div style="float:left; margin:0; width:50%;">
-                                DEX
-                                <br>
-                                <h3><span id="dex_mod">+0</span></h3>
-                            </div>
-                            <div style="float:left; margin:0; width:50%;">
-                                <br>
-                                <input type="number" id="dex_attr" style="text-align: center; height:35px; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
-                            </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                         <div style="float:left; margin:0; width:50%;">
+                            DEX
+                            <br>
+                            <h3><span id="dex_mod">+0</span></h3>
                         </div>
-                   </div>
+                        <div style="float:left; margin:0; width:50%;">
+                            <br>
+                            <input type="number" id="dex_attr" style="text-align: center; height:35px; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
+                        </div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
@@ -197,6 +196,7 @@
                         </div>
                     </div>
                 </div>
+              </form>
             </div>
             <div class="col-4">
                 <div class="card">
@@ -207,7 +207,7 @@
                             </a>-->
                         <table class="table table-hover">
                             <tr>
-                                <td><input type="checkbox" onchange="set_skill_bonus(this,'acrobatics_skill_mod','dex_mod')">&nbsp;Acrobatics</td>
+                                <td><input type="checkbox" id="acrobatics_prof" onchange="set_skill_bonus('acrobatics_prof','acrobatics_skill_mod','dex_mod')">&nbsp;Acrobatics</td>
                                 <td><span id="acrobatics_skill_mod">+0</span></td>
                             </tr>
                             <tr>
