@@ -27,6 +27,7 @@
             } else if (level >= 17) {
                 proficiency = 6;
             }
+            console.log(proficiency)
             return proficiency
         }
         set_ability_mod = function(src_id, dest_id) {
@@ -39,6 +40,8 @@
             if (document.getElementById(checkbox_id).checked) {
                 prof_bonus = calc_prof('char_level')
             }
+            console.log(ability_mod)
+            console.log(prof_bonus)
             document.getElementById(skill_id).innerHTML = format_mod(ability_mod + prof_bonus)
         }
     </script>
