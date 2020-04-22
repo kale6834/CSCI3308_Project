@@ -28,6 +28,7 @@
             } else if (level >= 17) {
                 proficiency = 6;
             }
+            return proficiency
         }
         set_ability_mod = function(src_id, dest_id) {
             var ability_mod = Math.floor((Number(document.getElementById(src_id).value) - 10) / 2)
@@ -36,9 +37,9 @@
         set_skill_bonus = function(checkbox, skill_id, ability_id) {
             var ability_mod = Number(document.getElementById(ability_id))
             var prof_bonus = 0
-            //  if (checkbox.checked) {
-            //      prof_bonus = calc_prof('char_level')
-            //  }
+            if (checkbox.checked) {
+                prof_bonus = calc_prof('char_level')
+            }
             document.getElementById(skill_id).innerHTML = format_mod(ability_mod + prof_bonus)
         }
     </script>
