@@ -10,6 +10,10 @@ body{
   text-align: center;
 }
 
+h1{
+  font-family: fantasy;
+}
+
 
 @media screen and (max-width: 850px){
   body{
