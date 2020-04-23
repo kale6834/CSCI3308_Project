@@ -107,20 +107,24 @@ app.post('/signup/select_user', function(req, res) {
 
 
 app.post('/homepage/create_user', function(req, res) {
+    var query = 'select * from players;';
+    var username = 'select username from players;';
     var charname = req.body.char_name;
     var charrace = req.body.char_race;
     var charclass = req.body.char_class;
     var charlevel = req.body.level;
-    var insert_statement = "INSERT INTO players(charname, race, class, level) VALUES('" + charname + "','" + charrace + "','" + charclass + "','" + charlevel + "');";
+    var insert_statement = "INSERT INTO players(charname, race, class, level) VALUES('" + charname + "','" + charrace + "','" + charclass + "','" + charlevel + "') where username = " + username + ";";
     // insert statement needs to be changed, but we need to create this the new table first.
     db.task('get-everything', task => {
             return task.batch([
+                task.any(query),
                 task.any(insert_statement)
             ]);
         })
         .then(info => {
             res.render('homepage', {
                 title: 'Home Page',
+                name: info[0].username,
                 charname: charname,
                 charrace: charrace,
                 charclass: charclass,
@@ -132,6 +136,7 @@ app.post('/homepage/create_user', function(req, res) {
             console.log(error);
             res.render('homepage', {
                 title: 'Home Page',
+                name: '',
                 charname: '',
                 charrace: '',
                 charclass: '',
