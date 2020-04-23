@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -51,17 +52,21 @@
             border-spacing: 10px 0px;
             border-collapse: separate;
         }
+        
         body {
             background-color: rgb(26, 26, 40);
         }
+        
         input[type=text] {
             border: none;
             font-size: 20px;
             border-bottom: 1px solid gray;
         }
+        
         input[type=text]:focus {
             border: 1px solid #262626;
         }
+        
         input[type=number] {
             text-align: center;
             width: 45px;
@@ -69,12 +74,14 @@
             border: none;
             border-right: 1px solid gray;
         }
+        
         input[type=number]:focus {
             text-align: left;
             border: 1px solid #262626;
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-light bg-light" name="player_choice">
         <a class="navbar-brand">
@@ -82,12 +89,12 @@
         </a>
         <!-- <img src="NEW_TO_DD_Classes_Ranger_T_140723.jpg" class="center avatar" alt="Image of D&D player that has logged in."> -->
         <%= name %>
-        
-        
-        <span class="navbar-text">
-            <a href="/public/meettheteam.html">Meet The Team!</a>
+
+
+            <span class="navbar-text">
+            <a href="meettheteam">Meet The Team!</a>
           </span>
-        
+
             <span class="navbar-text">
             <a href="login" class="btn btn-outline-secondary">Log Out</a>
           </span>
@@ -96,110 +103,110 @@
     <div class="container">
         <div class="col-12">
             <div class="card">
-                                  <form action="/homepage/create_user" method="post">
-                                      <div class="modal-body">
-                                          <div class="form-group">
-                                            <input type="text" id="char_name" class="form-control input-lg" name ="char_name" required="required" placeholder="Character Name"> <span style="color:#a0a0a0"></span>
-                                          </div>
-                                          <div class="form-group">
-                                              <input id="charrace" type="text" class="form-control" name="char_race" placeholder="Race" required="required">
-                                          </div>
-                                          <div class="form-group">
-                                              <input id="charclass" type="text" class="form-control" name="char_class" placeholder="Class" required="required">
-                                          </div>
-                                          <div class="form-group">
-                                            <input class="form-control" type="number" min="1" max="20" value="1" id="char_level" name="level" style="text-align: center; width: 60px"></input>
-                                            <label for="char_level">Level</label>
-                                          </div>
-                                          <div class="form-group">
-                                              <button id="my_submit_button" class="btn btn-primary btn-block login-btn">Save</button>
-                                          </div>
-                                      </div>
-                                  </form>
-                </div>
+                <form action="/homepage/create_user" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" id="char_name" class="form-control input-lg" name="char_name" required="required" placeholder="Character Name"> <span style="color:#a0a0a0"></span>
+                        </div>
+                        <div class="form-group">
+                            <input id="charrace" type="text" class="form-control" name="char_race" placeholder="Race" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input id="charclass" type="text" class="form-control" name="char_class" placeholder="Class" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="number" min="1" max="20" value="1" id="char_level" name="level" style="text-align: center; width: 60px"></input>
+                            <label for="char_level">Level</label>
+                        </div>
+                        <div class="form-group">
+                            <button id="my_submit_button" class="btn btn-primary btn-block login-btn">Save</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
     <br>
     <div class="container">
         <div class="row">
             <div class="col-2">
-              <form action="/homepage/create_user" method="post">
-                <div class="card">
-                    <div class="card-body">
-                        <div style="float:left; margin:0; width:50%;">
-                            STR
-                            <br>
-                            <h3><span id="str_mod">+0</span></h3>
-                        </div>
-                        <div style="float:left; margin:0; width:50%;">
-                            <br>
-                            <input type="number" id="str_attr" style="text-align: center; height:35px; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('str_attr','str_mod')"></input>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                         <div style="float:left; margin:0; width:50%;">
-                            DEX
-                            <br>
-                            <h3><span id="dex_mod">+0</span></h3>
-                        </div>
-                        <div style="float:left; margin:0; width:50%;">
-                            <br>
-                            <input type="number" id="dex_attr" style="text-align: center; height:35px; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
+                <form action="/homepage/create_user" method="post">
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="float:left; margin:0; width:50%;">
+                                STR
+                                <br>
+                                <h3><span id="str_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <br>
+                                <input type="number" id="str_attr" style="text-align: center; height:35px; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('str_attr','str_mod')"></input>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div style="float:left; margin:0; width:50%;">
-                            CON
-                            <br>
-                            <h3><span id="con_mod">+0</span></h3>
-                        </div>
-                        <div style="float:left; margin:0; width:50%;">
-                            <input type="number" id="con_attr" min="0" max="30" value="10" oninput="set_ability_mod('con_attr','con_mod')"></input>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div style="float:left; margin:0; width:50%;">
-                            INT
-                            <br>
-                            <h3><span id="int_mod">+0</span></h3>
-                        </div>
-                        <div style="float:left; margin:0; width:50%;">
-                            <input type="number" id="int_attr" min="0" max="30" value="10" oninput="set_ability_mod('int_attr','int_mod')"></input>
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="float:left; margin:0; width:50%;">
+                                DEX
+                                <br>
+                                <h3><span id="dex_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <br>
+                                <input type="number" id="dex_attr" style="text-align: center; height:35px; width: 45px" min="0" max="30" value="10" oninput="set_ability_mod('dex_attr','dex_mod')"></input>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div style="float:left; margin:0; width:50%;">
-                            WIS
-                            <br>
-                            <h3><span id="wis_mod">+0</span></h3>
-                        </div>
-                        <div style="float:left; margin:0; width:50%;">
-                            <input type="number" id="wis_attr" min="0" max="30" value="10" oninput="set_ability_mod('wis_attr','wis_mod')"></input>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div style="float:left; margin:0; width:50%;">
-                            CHA
-                            <br>
-                            <h3><span id="cha_mod">+0</span></h3>
-                        </div>
-                        <div style="float:left; margin:0; width:50%;">
-                            <input type="number" id="cha_attr" min="0" max="30" value="10" oninput="set_ability_mod('cha_attr','cha_mod')"></input>
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="float:left; margin:0; width:50%;">
+                                CON
+                                <br>
+                                <h3><span id="con_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <input type="number" id="con_attr" min="0" max="30" value="10" oninput="set_ability_mod('con_attr','con_mod')"></input>
+                            </div>
                         </div>
                     </div>
-                </div>
-              </form>
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="float:left; margin:0; width:50%;">
+                                INT
+                                <br>
+                                <h3><span id="int_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <input type="number" id="int_attr" min="0" max="30" value="10" oninput="set_ability_mod('int_attr','int_mod')"></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="float:left; margin:0; width:50%;">
+                                WIS
+                                <br>
+                                <h3><span id="wis_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <input type="number" id="wis_attr" min="0" max="30" value="10" oninput="set_ability_mod('wis_attr','wis_mod')"></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="float:left; margin:0; width:50%;">
+                                CHA
+                                <br>
+                                <h3><span id="cha_mod">+0</span></h3>
+                            </div>
+                            <div style="float:left; margin:0; width:50%;">
+                                <input type="number" id="cha_attr" min="0" max="30" value="10" oninput="set_ability_mod('cha_attr','cha_mod')"></input>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-4">
                 <div class="card">
@@ -291,9 +298,9 @@
                         <button type="button" class="btn btn-outline-primary">Save</button>
                         <!-- <textarea rows="35" cols="50"></textarea> -->
                         <form class="" action="homepage/create_features" method="post">
-                          <div class="form-group">
-                            <input type="text" id = "feat" class = "form-control input-lg" name="features" required = "required" placeholder = "features">
-                          </div>
+                            <div class="form-group">
+                                <input type="text" id="feat" class="form-control input-lg" name="features" required="required" placeholder="features">
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -330,6 +337,6 @@
     </div>
 </body>
 <footer>
-    <a href="/public/meettheteam.html">Meet The Team!</a>
 </footer>
+
 </html>
