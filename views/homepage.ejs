@@ -45,6 +45,23 @@
             console.log(prof_bonus)
             document.getElementById(skill_id).innerHTML = format_mod(ability_mod + prof_bonus)
         }
+        add_spell = function(id) {
+
+            document.getElementById(id).innerHTML += `
+                <li class="list-group-item">
+                    <form class="form-group-horizontal">
+                        <h1><input type="text" class="form-control" placeholder="Spell Name"></h1>
+                        <p><em><input type="text" class="form-control" placeholder="Spell Level"></em></p>
+                        <p><strong>Casting Time:</strong> <input type="text" class="form-control"><br>
+                        <strong>Range:</strong><input type="text" class="form-control"><br>
+                        <strong>Components:</strong><input type="text" class="form-control"><br>
+                        <strong>Duration:</strong><input type="text" class="form-control"></p>
+                        <p><input type="text" class="form-control"></p>
+                    </form>
+                </li>
+            `
+        }
+
     </script>
     <title>Home</title>
     <style>
@@ -314,23 +331,9 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Spells</h5>
-                        <a href="#" class="card-link">
-                            <h6 class="card-subtitle mb-2 text-muted">Add Spell</h6>
-                        </a>
-                        <ul class="list-group list-group-horizontal">
-                            <li class="list-group-item">
-                                <!-- <p>name: Acid Arrow level: 2 school: evocation classes: wizard</p> -->
-                                <h1><input type="text" class="form-control" placeholder="Spell Name"></h1>
-                                <p><em><input type="text" class="form-control" placeholder="Spell Level"></em></p>
-                                <p><strong>Casting Time:</strong> <input type="text" class="form-control"><br>
-                                <strong>Range:</strong><input type="text" class="form-control"><br>
-                                <strong>Components:</strong><input type="text" class="form-control"><br>
-                                <strong>Duration:</strong><input type="text" class="form-control"></p>
-                                <p><input type="text" class="form-control"></p>
-                            </li>
-                            <li class="list-group-item">Spell</li>
-                            <li class="list-group-item">Spell</li>
-                        </ul>
+                        <button type="button" class="btn btn-outline-primary">Add Spell</button>
+                        <ul id="spell_list" class="list-group list-group-horizontal">
+                       </ul>
                     </div>
                 </div>
             </div>
