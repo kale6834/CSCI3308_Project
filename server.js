@@ -111,7 +111,7 @@ app.post('/homepage/create_user', function(req, res) {
     var charrace = req.body.char_race;
     var charclass = req.body.char_class;
     var charlevel = req.body.level;
-    // var insert_statement = "INSERT INTO players(username, firstname, lastname, password) VALUES('" + username + "','" + firstname + "','" + lastname + "','" + password + "');";
+    var insert_statement = "INSERT INTO players(charname, race, class, level) VALUES('" + charname + "','" + charrace + "','" + charclass + "','" + charlevel + "');";
     // insert statement needs to be changed, but we need to create this the new table first.
     db.task('get-everything', task => {
             return task.batch([
@@ -120,18 +120,58 @@ app.post('/homepage/create_user', function(req, res) {
         })
         .then(info => {
             res.render('homepage', {
-                name: username
+                title: 'Home Page',
+                charname: charname,
+                charrace: charrace,
+                charclass: charclass,
+                charlevel: charlevel
             })
         })
         .catch(error => {
             // display error message in case an error
             console.log(error);
             res.render('homepage', {
-                title: 'Home Page'
+                title: 'Home Page',
+                charname: '',
+                charrace: '',
+                charclass: '',
+                charlevel: ''
             })
         });
 
 });
+
+// app.get('homepage/create_user', function(req, res) {
+//     var query = 'select * from players;';
+//     var select_char = 'select charname,race,class,level from players;';
+//     db.task('get-everything', task => {
+//             return task.batch([
+//                 task.any(query),
+//                 task.any(select_char)
+//             ]);
+//         })
+//         .then(info => {
+//             res.render('homepage', {
+//                 title: 'Home Page',
+//                 charname: info[0].charname,
+//                 charrace: info[0].race,
+//                 charclass: info[0].class,
+//                 charlevel: info[0].level
+//             })
+//         })
+//         .catch(error => {
+//             // display error message in case an error
+//             console.log(error);
+//             res.render('homepage', {
+//                 title: 'Home Page',
+//                 charname: '',
+//                 charrace: '',
+//                 charclass: '',
+//                 charlevel: ''
+//             })
+//         });
+
+// });
 
 
 
