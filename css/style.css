@@ -11,6 +11,12 @@
     text-decoration: none;
      color: #2896D2;
   }
+  a{
+      color: #2896D2;
+  }
+  .navbar-text a{
+    color: #2896D2;
+  }
   h5{
     font-family: Helvetica;
     color: #666;
