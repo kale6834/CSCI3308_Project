@@ -1,0 +1,31 @@
+*,
+*:before,
+*:after
+	{margin:0;
+	padding:0;
+	box-sizing: border-box;
+	}
+
+  a:link{
+    font-family: Helvetica, sans-serif;
+    text-decoration: none;
+     color: #2896D2;
+  }
+  h5{
+    font-family: Helvetica;
+    color: #666;
+  }
+  .table{
+    font-family: Helvetica, sans-serif;
+    color: #666;
+  }
+  a:visited{
+    color: #2896D2;
+  }
+
+  a:hover{
+    color: white; background-color: black;
+  }
+  a:active{
+    color: black; background-color: black;
+  }
