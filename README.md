@@ -1,7 +1,7 @@
 # CSCI3308_Project
 This is a repository of our team's Software Development project.
 
-###### Dungeons and Dragons Sheet
+# Dungeons and Dragons Sheet
 
 ## Team Members:
 - Kalei Lewis
